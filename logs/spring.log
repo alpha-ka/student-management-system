@@ -4701,3 +4701,29 @@ Unconditional classes:
 2021-10-03 14:04:29.927  INFO 16176 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-10-03 14:04:29.934  INFO 16176 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-10-03 14:04:29.966  INFO 16176 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-10-03 14:28:30.194  INFO 18476 --- [main] .StudentManagementSystemApplicationTests : Starting StudentManagementSystemApplicationTests using Java 1.8.0_121 on DESKTOP-P8B292R with PID 18476 (started by ALPHA in C:\Users\ALPHA\SpringBootProjects\student-management-system)
+2021-10-03 14:28:30.221  INFO 18476 --- [main] .StudentManagementSystemApplicationTests : No active profile set, falling back to default profiles: default
+2021-10-03 14:28:33.689  INFO 18476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-10-03 14:28:33.952  INFO 18476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 237 ms. Found 1 JPA repository interfaces.
+2021-10-03 14:28:36.166  INFO 18476 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-10-03 14:28:36.471  INFO 18476 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-10-03 14:28:37.564  INFO 18476 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-10-03 14:28:39.818  INFO 18476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-10-03 14:28:41.269  INFO 18476 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-10-03 14:28:41.393  INFO 18476 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2021-10-03 14:28:45.503  INFO 18476 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-10-03 14:28:45.575  INFO 18476 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-10-03 14:28:47.959  WARN 18476 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-10-03 14:28:52.047  INFO 18476 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2021-10-03 14:28:52.252  INFO 18476 --- [main] .StudentManagementSystemApplicationTests : Started StudentManagementSystemApplicationTests in 23.041 seconds (JVM running for 26.128)
+2021-10-03 14:28:52.768 DEBUG 18476 --- [main] org.hibernate.SQL                        : insert into students (email, first_name, last_name) values (?, ?, ?)
+2021-10-03 14:28:52.948 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:53.632 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_, student0_.email as email2_0_, student0_.first_name as first_na3_0_, student0_.last_name as last_nam4_0_ from students student0_
+2021-10-03 14:28:53.822 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:53.840 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:53.876 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:53.894 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:53.910 DEBUG 18476 --- [main] org.hibernate.SQL                        : select student0_.id as id1_0_0_, student0_.email as email2_0_0_, student0_.first_name as first_na3_0_0_, student0_.last_name as last_nam4_0_0_ from students student0_ where student0_.id=?
+2021-10-03 14:28:54.055  INFO 18476 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-10-03 14:28:54.059  INFO 18476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-10-03 14:28:54.122  INFO 18476 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
