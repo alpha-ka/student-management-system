@@ -2,7 +2,11 @@ package com.alpha.sms.controller;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.alpha.sms.entity.Dummy;
 import com.alpha.sms.entity.Student;
 import com.alpha.sms.entity.StudentDTO;
 import com.alpha.sms.service.StudentService;
@@ -23,6 +28,10 @@ import com.alpha.sms.service.StudentService;
 public class StudentController {
 	@Autowired
 	private StudentService studentService;
+	//@Autowired(required = false)
+	
+	@Resource(name="dum")
+	private Dummy dummy;
 	//Constructor Based injection to inject dependency
 //	public StudentController(StudentService studentService) {
 //		super();
@@ -81,14 +90,14 @@ public class StudentController {
 	
 	//Spring Restful 
 
-	@GetMapping(path="/students",produces = {"application/json"})
+	@GetMapping(path="/students",produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Student> listStudents()
 	{
-		  
+		  System.out.println(dummy.toString());
 		return studentService.getAllStudents(); 
 		
 	}
-	@GetMapping("/student/{id}")
+	@GetMapping(path="/student/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public Student editStudentForm(@PathVariable Long id)
 	{
 		Student student=studentService.getStudentById(id);
@@ -97,7 +106,7 @@ public class StudentController {
 		
 	}
 	
-	@PostMapping(path="/student" , consumes = {"application/json"})
+	@PostMapping(path="/student" , consumes =MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
 	//why we using @requestbody bcos we sending JSON data so it converts into object 
 	public Student saveStudent(@RequestBody Student  student) 
 	{
@@ -105,14 +114,14 @@ public class StudentController {
 		return studentService.saveStudent(student);
 	}
 
-	@PutMapping("/student")
+	@PutMapping(path="/student" , consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
 	//why we using @requestbody bcos we sending JSON data so it converts into object 
 	public Student updateStudent(@RequestBody Student student) 
 	{
 		return studentService.updateStudent(student);
 	}
 	
-	@PatchMapping("/student/{id}")
+	@PatchMapping(path="/student/{id}", consumes =MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
 	//why we using @requestbody bcos we sending JSON data so it converts into object 
 	public Student updateReqInfoStudent(@PathVariable Long id,@RequestBody StudentDTO studentDTO) 
 	{

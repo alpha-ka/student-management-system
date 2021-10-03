@@ -8,6 +8,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.inject.Inject;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.function.Executable;
@@ -27,9 +30,9 @@ import com.alpha.sms.service.StudentService;
 @TestMethodOrder(OrderAnnotation.class)
 class StudentManagementSystemApplicationTests {
 
-	@Autowired
+	@Inject
 	private StudentRepository studentRepo;
-	@Autowired
+	@Inject
 	private StudentService studentService;
 
 	@Test
@@ -76,9 +79,9 @@ class StudentManagementSystemApplicationTests {
 //	@Test
 //	@Order(5)
 //	public void testDeleteByID() {
-//		Student student = studentService.getStudentById((long) 21);
+//		Student student = studentService.getStudentById((long) 27);
 //		studentService.deleteStudent(student);
-//		assertFalse(studentRepo.existsById((long) 21));
+//		assertFalse(studentRepo.existsById((long) 27));
 //
 //	}
 
