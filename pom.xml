@@ -12,10 +12,12 @@
 	<groupId>com.alpha</groupId>
 	<artifactId>student-management-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>student-management-system</name>
 	<description>Student Managementt System using Spring Boot and Thymeleaf</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<start-class>com.alpha.sms.StudentManagementSystemApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
