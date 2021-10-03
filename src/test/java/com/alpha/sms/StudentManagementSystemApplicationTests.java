@@ -73,17 +73,17 @@ class StudentManagementSystemApplicationTests {
 
 	}
 
+//	@Test
+//	@Order(5)
+//	public void testDeleteByID() {
+//		Student student = studentService.getStudentById((long) 21);
+//		studentService.deleteStudent(student);
+//		assertFalse(studentRepo.existsById((long) 21));
+//
+//	}
+
 	@Test
 	@Order(5)
-	public void testDeleteByID() {
-		Student student = studentService.getStudentById((long) 21);
-		studentService.deleteStudent(student);
-		assertFalse(studentRepo.existsById((long) 21));
-
-	}
-
-	@Test
-	@Order(6)
 	public void testGetByIDException() {
 		long id = 52;
 
@@ -102,7 +102,7 @@ class StudentManagementSystemApplicationTests {
 	 
 	
 	@Test
-	@Order(7)
+	@Order(6)
 	public void testCreateException()
 	{
 		assertThrows(EmptyInputException.class, new Executable() {
