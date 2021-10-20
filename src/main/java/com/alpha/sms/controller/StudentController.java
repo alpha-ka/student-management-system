@@ -6,6 +6,7 @@ import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,11 @@ public class StudentController {
 	
 	@Resource(name="dum")
 	private Dummy dummy;
+	
+	@Value("iouo")
+	private String hello;
+	
+	
 	//Constructor Based injection to inject dependency
 //	public StudentController(StudentService studentService) {
 //		super();
@@ -146,5 +152,24 @@ public class StudentController {
 		studentService.deleteStudent(student);//Object also vanished so we can't access it
 		return "Deleted "+id;
 		
+	}
+	
+	@GetMapping("/")
+	public String home()
+	{
+		System.out.println(hello);
+	return "<h1>Welcome</h1>";
+	}
+	@GetMapping("/user")
+	public String user()
+	{
+		
+	return "<h1>Hi User</h1>";
+	}
+	@GetMapping("/admin")
+	public String admin()
+	{
+		
+	return "<h1>Hi Admin</h1>";
 	}
 }

@@ -5,27 +5,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
 
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.function.Executable;
+import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MockMvcBuilder;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import com.alpha.sms.entity.Student;
 import com.alpha.sms.exception.EmptyInputException;
 import com.alpha.sms.exception.ResourceNotFoundException;
 import com.alpha.sms.repository.StudentRepository;
 import com.alpha.sms.service.StudentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
 class StudentManagementSystemApplicationTests {
@@ -34,7 +48,24 @@ class StudentManagementSystemApplicationTests {
 	private StudentRepository studentRepo;
 	@Inject
 	private StudentService studentService;
+	
+	
+	//private MockMvc mockMvc;
+	
+//	@Autowired
+//	private WebApplicationContext context;
+//	
+//	ObjectMapper om=new ObjectMapper();
+	
+//	@Before
+//	private void setUP()
+//	{
+//		mockMvc=MockMvcBuilders.webAppContextSetup(context).build();
+//		
+//	}
 
+	
+	
 	@Test
 	@Order(1)
 	public void testCreate() {
@@ -50,21 +81,21 @@ class StudentManagementSystemApplicationTests {
 	@Order(2)
 	public void testReadAll() {
 		List list = studentService.getAllStudents();
-		assertThat(list).size().isGreaterThan(0);
-	}
-
-	@Test
-	@Order(3)
-	public void testFindByID() {
-		long id = 11;
-		Student student = studentService.getStudentById(id);
-
-		assertEquals("alphaka94@gmail.com", student.getEmail());
-
+		assertThat(list).size().isGreaterThanOrEqualTo(0);
 	}
 
 	@Test
 	@Order(4)
+	public void testFindByID() {
+		long id = 39;
+		Student student = studentService.getStudentById(id);
+
+		assertEquals("ka007@gmail.com", student.getEmail());
+
+	}
+
+	@Test
+	@Order(3)
 	public void testUpdate() {
 		Student student = studentService.getStudentById((long) 20);
 		student.setEmail("test10@gmail.com");
